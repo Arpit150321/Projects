@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>RGB to Hex Code</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            body {
+                display: flex;
+                justify-content: center;
+                background: #dcdcdcd9;
+            }
+
+            .boxShadow {
+                box-shadow: 5px 5px 12px 3px #bdbdbd, -5px -5px 12px 3px #ffffff, inset 5px 5px 12px 3px #dedede;
+            }
+
+            .container {
+                position: absolute;
+                width: 700px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 0px auto;
+                top: 50%;
+                transform: translateY(-50%);
+                border-radius: 5px;
+                background: linear-gradient(130deg, #e3e3e3, #e7e7e7);
+                opacity: 0.7;
+                padding: 10px 5%;
+                box-shadow: 10px 10px 15px 10px #bdbdbd, -10px -10px 15px 10px #ebebeb, inset 10px 10px 15px 10px #dedede;
+            }
+
+            .title {
+                width: 100%;
+            }
+
+            .title h2 {
+                text-align: center;
+                padding: 10px 0px;
+                font-family: 'Satisfy', cursive;
+                font-size: 30px;
+                font-weight: 600;
+                color: #5a5a5a;
+            }
+
+            .color-range {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                padding: 20px 0 10px;
+            }
+
+            .range {
+                position: relative;
+                align-items: center;
+                justify-content: center;
+                border-radius: 5px;
+                padding: 10px;
+                height: 80px;
+                background: linear-gradient(90deg, #f2f2f2, #e7e7e7);
+            }
+
+            .element {
+                width: 100%;
+                height: 8px;
+                appearance: none;
+                background: #e7e7e7;
+                outline: none;
+                border-radius: 5px;
+                overflow: hidden;
+            }
+
+            .rad-element {
+                box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.1), -5px -5px 10px #fff, inset 5px 5px 5px rgb(255, 0, 0, 0.1);
+            }
+
+            .green-element {
+                box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.1), -5px -5px 10px #fff, inset 5px 5px 5px rgb(0, 255, 0, 0.1);
+            }
+
+            .blue-element {
+                box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.1), -5px -5px 10px #fff, inset 5px 5px 5px rgb(0, 0, 255, 0.1);
+            }
+
+            .element::-webkit-slider-thumb {
+                appearance: none;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+
+            .rad-element::-webkit-slider-thumb {
+                background: #ff0000;
+                box-shadow: -403.5px 0 0 400px #ff0000;
+            }
+
+            .green-element::-webkit-slider-thumb {
+                background: #00ff00;
+                box-shadow: -403.5px 0 0 400px #00ff00;
+            }
+
+            .blue-element::-webkit-slider-thumb {
+                background: #0000ff;
+                box-shadow: -403.5px 0 0 400px #0000ff;
+            }
+
+            .count {
+                position: absolute;
+                display: flex;
+                width: 40px;
+                color: #fff;
+                text-align: center;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%);
+                border-radius: 5px;
+            }
+
+            .count h4 {
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .red-count {
+                background: linear-gradient(90deg, #d60000, #ff3d3d);
+                box-shadow: 2px 2px 3px 0px #dd0000, -2px -2px 3px 0px #ff8383;
+            }
+
+            .green-count {
+                background: linear-gradient(90deg, #00d600, #3dff3d);
+                box-shadow: 2px 2px 3px 0px #00dd00, -2px -2px 3px 0px #83ff83;
+            }
+
+            .blue-count {
+                background: linear-gradient(90deg, #0000d6, #3d3dff);
+                box-shadow: 2px 2px 3px 0px #0000dd, -2px -2px 3px 0px #8383ff;
+            }
+
+            .haxcode {
+                position: relative;
+                width: 100%;
+                height: 70px;
+                text-align: center;
+                font-size: 23px;
+            }
+
+            .number {
+                position: absolute;
+                background: linear-gradient(90deg, #f2f2f2, #e7e7e7);
+                border-radius: 10px;
+                padding: 8px;
+                font-size: 20px;
+                font-family: 'Kaushan Script', cursive;
+                color: #5a5a5a;
+                top: 20%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .color-box {
+                width: 95%;
+                height: 200px;
+                margin: 10px 0;
+            }
+
+            .box {
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+                background: #98cfbb;
+                box-shadow: 8px 8px 12px 5px #bdbdbd, -8px -8px 8px 8px #e7e7e7;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="title">
+                <h2>RGB to Hexcode Convert</h2>
+            </div>
+            <div class="color-range">
+                <div class="range boxShadow">
+                    <input class="rad-element element" type="range" name="red" id="red" min="0" max="255" value="152"
+                        onpointermove="setRGB()">
+                    <div class="red-count count">
+                        <h4 class="" id="red-content">152</h4>
+                    </div>
+
+                </div>
+                <div class="range boxShadow">
+                    <input class="green-element element" type="range" name="green" id="green" min="0" max="255"
+                        value="207" onpointermove="setRGB()">
+                    <div class="green-count count">
+                        <h4 class="" id="green-content">207</h4>
+                    </div>
+                </div>
+                <div class="range boxShadow">
+                    <input class="blue-element element" type="range" name="blue" id="blue" min="0" max="255" value="187"
+                        onpointermove="setRGB()">
+                    <div class="blue-count count">
+                        <h4 class="" id="blue-content">187</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="haxcode">
+                <h4 class="number boxShadow" id="hax-number">#98cfbb</h4>
+            </div>
+            <div class="color-box">
+                <div class="box boxShadow" id="color"></div>
+            </div>
+        </div>
+
+        <script>
+            function setRGB() {
+                red = document.getElementById("red");
+                green = document.getElementById("green");
+                blue = document.getElementById("blue");
+
+                redContent = document.getElementById("red-content");
+                greenContent = document.getElementById("green-content");
+                blueContent = document.getElementById("blue-content");
+
+                redContent.innerHTML = red.value;
+                greenContent.innerHTML = green.value;
+                blueContent.innerHTML = blue.value;
+
+                haxNumber = document.getElementById("hax-number");
+
+                redValue = parseInt(red.value).toString(16);
+                greenValue = parseInt(green.value).toString(16);
+                blueValue = parseInt(blue.value).toString(16);
+
+                haxNumber.innerHTML = "#" + redValue + greenValue + blueValue;
+
+                Color = document.getElementById("color");
+
+                Color.style['background'] = `rgb(${red.value},${green.value},${blue.value})`;
+            }
+        </script>
+    </body>
+
+</html>
